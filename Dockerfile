@@ -29,42 +29,42 @@ RUN apt-get install -y --no-install-recommends curl \
             sudo \
             unzip \
             wget \
-            xz-utils
+            xz-utils || true
             
 RUN apt-get install -y --no-install-recommends \
             python3 \
             python3-numpy \
             python3-pip \
-            python3-setuptools
+            python3-setuptools || true
             
 RUN  rm -rf \
             /var/lib/apt/lists/* \
             /var/tmp/* \
-            /tmp/*
+            /tmp/* 
             
-RUN apt-get install -y supervisor
-RUN dpkg --add-architecture i386
+RUN apt-get install -y supervisor || true
+RUN dpkg --add-architecture i386 || true
 RUN apt-get install -y --no-install-recommends \
             libgl1-mesa-dri \
             libgl1-mesa-glx \
             libgles2-mesa \
             libglu1-mesa \
             mesa-utils \
-            mesa-utils-extra
+            mesa-utils-extra || true
            
 RUN apt-get install -y --no-install-recommends \
             libvulkan1 \
             libvulkan1:i386 \
             mesa-vulkan-drivers \
             mesa-vulkan-drivers:i386 \
-            vulkan-tools
+            vulkan-tools || true
             
 RUN apt-get install -y --no-install-recommends \
             libdbus-1-3 \
             libegl1 \
             libgtk-3-0 \
             libgtk2.0-0 \
-            libsdl2-2.0-0
+            libsdl2-2.0-0 || true
             
 RUN apt-get install -y --no-install-recommends \
             avahi-utils \
@@ -82,15 +82,15 @@ RUN apt-get install -y --no-install-recommends \
             xserver-xorg-legacy \
             xserver-xorg-video-all \
             xserver-xorg-video-dummy \
-            xvfb
+            xvfb || true
             
 RUN apt-get install -y --no-install-recommends \
             pulseaudio \
             alsa-utils \
             libasound2 \
-            libasound2-plugins 
+            libasound2-plugins  || true
             
-RUN apt-get install -y openssh-server 
+RUN apt-get install -y openssh-server  || true
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 
 # Install Neko server
