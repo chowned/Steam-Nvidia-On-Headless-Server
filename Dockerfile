@@ -15,12 +15,8 @@ RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
 RUN apt-get clean autoclean -y && apt-get autoremove
 RUN rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/*
 
-
-    
-RUN apt-get install -y --reinstall ca-certificates
-
 RUN apt-get install -y --no-install-recommends curl \
-            git \
+            git ca-certificates \
             mlocate \
             nano \
             net-tools \
