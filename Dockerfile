@@ -11,13 +11,11 @@ RUN \
     
 RUN apt update && apt upgrade -y
 RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen 
-RUN locale-gen
+
 RUN apt-get clean autoclean -y && apt-get autoremove
 RUN rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/*
 
-ENV LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8
+
     
 RUN apt-get install -y --reinstall ca-certificates
 
