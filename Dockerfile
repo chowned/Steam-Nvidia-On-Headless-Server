@@ -16,7 +16,7 @@ RUN apt-get clean autoclean -y && apt-get autoremove
 RUN rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/*
 
 RUN apt-get install -y --no-install-recommends curl \
-            git ca-certificates \
+            git \
             mlocate \
             nano \
             net-tools \
